@@ -12,8 +12,14 @@
 }
 
 body {
-    justify-content: center;
-    background-color: var(--main-color);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: var(--main-color);
+}
+
+.wrapper {
+    max-width: 1200px; 
 }
 
 header {
@@ -23,16 +29,20 @@ header {
     margin: auto;
 }
 
-h1 {
-    font-weight: extrabold;
-    color: var(--main-color);
-    margin: 30px 0 15px 0;
+main {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+    background-color: white;
 }
 
-figcaption {
-    text-wrap: nowrap;
-    font-size: 0.8rem;
-    margin-top: 5px;
+h1 {
+    font-weight: 800;
+    color: var(--main-color);
+    margin: 30px 0 15px 0;
 }
 
 header figure img {
@@ -41,18 +51,21 @@ header figure img {
     height: 100%;
 }
 
-header>h2 {
+.header-title {
+    margin: 0;
     text-align: center;
     width: 100%;
     height: 30px;
+    font-size: 1.4rem;
+    font-weight: bold;
     color: white;
     background-color: var(--back-nav);
-    margin: 0;
+    
 }
 
 a {
     color: white;
-    text-wrap: nowrap;
+    white-space: nowrap;
     font-size: 0.7rem;
     font-weight: bold;
 }
@@ -61,16 +74,6 @@ p,
 nav {
     font-size: 0.8rem;
 }
-
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    background-color: white;
-}
-
 
 nav {
     display: flex;
@@ -81,6 +84,8 @@ nav {
 }
 
 nav ul {
+    display: flex;
+    flex-direction: column;
     list-style: none;
     margin: 5px 10px 5px 10px;
     text-align: center;
@@ -90,17 +95,6 @@ nav ul {
 li {
     margin: 3px 10px;
 }
-
-.container {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 70%;
-    margin: auto;
-    background-color: white;
-}
-
 
 article {
     width: 60%;
@@ -113,7 +107,6 @@ article>p {
 }
 
 aside {
-
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -132,11 +125,15 @@ aside img {
     width: 100%;
 }
 
-
 aside figcaption {
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
+    margin-top: 5px;
+    white-space: nowrap;
+    width: 120%;
+    margin-left: -10%;
+    margin-right: -10%;
 }
 
 aside p {
@@ -163,25 +160,51 @@ footer {
     color: white;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+   header, 
+   main, 
+   footer{
+    width: 85%;
+   }
+}
+
 @media screen and (max-width: 768px) {
 
-    .container,
+    main,
     header,
     nav,
     article,
+    aside,
     footer {
         width: 100%;
     }
 
-    .container {
+    .header-title {
+        font-size: 1.2rem;
+    }
+
+    main {
         flex-direction: column;
     }
 
-
-    nav {
-        flex-direction: row;
+    article {
+        margin : 10px;
     }
 
+    article>p
+    {
+        margin-right: 20px;
+    }
 
+    aside {
+        margin: 20px 0;
+    }
 
+    nav {
+        margin : 0;
+    }
+    nav ul {
+        flex-direction: row;
+
+    }
 }
